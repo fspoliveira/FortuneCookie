@@ -4,6 +4,20 @@ public class Cookie {
 	
 	int index;
 	String cookieMessage;
+	
+	
+	public Cookie() {
+		super();
+	}
+	
+	
+	public Cookie(int index, String cookieMessage) {
+		super();
+		this.index = index;
+		this.cookieMessage = cookieMessage;
+	}
+
+
 	public int getIndex() {
 		return index;
 	}
