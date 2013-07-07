@@ -20,19 +20,19 @@ public class CookieDaoImpl extends Util implements CookieDao {
 	public void retrieveAllCookies() {
 		// TODO Auto-generated method stub
 		ObjectContainer db = accessDb4o();
+		@SuppressWarnings("rawtypes")
 		ObjectSet result = db.queryByExample(Cookie.class);
-        listResult(result);
-        db.close();
-	}
-	
-	public static void listResult(List<?> result){
-	    System.out.println(result.size());
-	    for (Object o : result) {
-	    	Cookie c = (Cookie) o;
-	        //System.out.println(o);
-	    	System.out.println("Index +"+ c.getIndex() + " " + c.getCookieMessage());
-	    }
+		listResult(result);
+		db.close();
 	}
 
-	
+	public static void listResult(List<?> result) {
+		System.out.println("Total Records from Class: " + result.size());
+		for (Object o : result) {
+			Cookie c = (Cookie) o;
+			// System.out.println(o);
+			System.out.println("Index " + c.getIndex() + " "
+					+ c.getCookieMessage());
+		}
+	}
 }

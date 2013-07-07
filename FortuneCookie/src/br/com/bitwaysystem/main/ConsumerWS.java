@@ -13,9 +13,8 @@ public class ConsumerWS {
 	public static void main(String args[]) {
 		FullerData_x0020_Fortune_x0020_CookieSoapProxy fortuneCookie = new FullerData_x0020_Fortune_x0020_CookieSoapProxy();
 		try {
+			for (int i = 0; i < fortuneCookie.countCookies(); i++) {
 
-			// for(int i=0; i <fortuneCookie.countCookies() ; i++){
-			for (int i = 0; i < 3; i++) {
 				System.out.println("Index: " + i + " "
 						+ fortuneCookie.getSpecificCookie(i));
 

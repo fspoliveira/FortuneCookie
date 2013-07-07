@@ -6,8 +6,10 @@ import com.db4o.ObjectContainer;
 
 public class Util {
 
-	final static String DB4OFILENAME = System.getProperty("user.home")
-			+ "/cookies.db4o";
+	/*final static String DB4OFILENAME = System.getProperty("user.home")
+			+ "/cookies.db4o";*/
+	
+	final static String DB4OFILENAME = "cookies.db4o";
 
 	public ObjectContainer accessDb4o() {
 		
