@@ -1,23 +1,18 @@
 package br.com.bitwaysystem.bean;
 
-public class Cookie {
+public class Cookie  {
 	
 	int index;
-	String cookieMessage;
-	
+	String cookieMessage;	
 	
 	public Cookie() {
 		super();
 	}
-	
-	
 	public Cookie(int index, String cookieMessage) {
 		super();
 		this.index = index;
 		this.cookieMessage = cookieMessage;
 	}
-
-
 	public int getIndex() {
 		return index;
 	}
@@ -29,5 +24,6 @@ public class Cookie {
 	}
 	public void setCookieMessage(String cookieMessage) {
 		this.cookieMessage = cookieMessage;
-	}	
+	}		
+
 }
