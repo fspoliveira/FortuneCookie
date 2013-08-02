@@ -4,16 +4,12 @@ import java.util.List;
 
 import javax.jws.WebService;
 
-import com.db4o.Db4o;
 import com.db4o.ObjectContainer;
 import com.db4o.ObjectSet;
-import com.db4o.foundation.Queue4;
-
 import com.db4o.query.Query;
 
 import br.com.bitwaysystem.db4o.Util;
 import br.com.bitwaysystem.bean.Cookie;
-
 
 @WebService(endpointInterface = "br.com.bitwaysystem.webservice.CookieServer")
 public class CookieDaoImpl extends Util implements CookieDao {
@@ -46,16 +42,19 @@ public class CookieDaoImpl extends Util implements CookieDao {
 
 	@Override
 	public Cookie retrieveCookie(Cookie cookie) {
-		ObjectContainer db = accessDb4o();			
-		Query query = db.query();
-		 
-	        query.constrain(Cookie.class);	       
-	        query.descend("index").constrain(cookie.getIndex());
-	        ObjectSet result=query.execute();
-	        Cookie cookieResponse;	        
-	        cookieResponse = (Cookie) result.next();
-	        db.close();
-	        return cookieResponse;
 		
+		ObjectContainer db = accessDb4o();
+		
+		Query query = db.query();
+		query.constrain(Cookie.class);
+		query.descend("index").constrain(cookie.getIndex());
+		
+		@SuppressWarnings("rawtypes")
+		ObjectSet result = query.execute();
+		Cookie cookieResponse;
+		cookieResponse = (Cookie) result.next();
+		db.close();
+		return cookieResponse;
+
 	}
 }

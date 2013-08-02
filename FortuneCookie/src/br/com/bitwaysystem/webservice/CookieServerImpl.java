@@ -8,7 +8,7 @@ import br.com.bitwaysystem.dao.CookieDao;
 import br.com.bitwaysystem.dao.CookieDaoImpl;
 
 
-@WebService(endpointInterface = "br.com.fiap.webservice.CookieServer")
+@WebService(endpointInterface = "br.com.bitwaysystem.webservice.CookieServer")
 public class CookieServerImpl implements CookieServer {
 
 	private CookieDao cookies = new CookieDaoImpl();	
