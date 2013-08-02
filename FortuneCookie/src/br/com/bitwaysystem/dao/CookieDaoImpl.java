@@ -42,17 +42,24 @@ public class CookieDaoImpl extends Util implements CookieDao {
 
 	@Override
 	public Cookie retrieveCookie(Cookie cookie) {
-		
+
 		ObjectContainer db = accessDb4o();
-		
+
 		Query query = db.query();
 		query.constrain(Cookie.class);
 		query.descend("index").constrain(cookie.getIndex());
-		
+
 		@SuppressWarnings("rawtypes")
 		ObjectSet result = query.execute();
-		Cookie cookieResponse;
-		cookieResponse = (Cookie) result.next();
+		Cookie cookieResponse = null;
+
+		if (result.hasNext()) {
+			cookieResponse = (Cookie) result.next();
+		} else {
+			cookieResponse = new Cookie(cookie.getIndex(),
+					"Index invalid must to between 0 and 881");
+		}
+
 		db.close();
 		return cookieResponse;
 
