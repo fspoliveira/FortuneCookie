@@ -1,6 +1,8 @@
 package br.com.bitwaysystem.bean;
 
-public class Cookie  {
+import java.io.Serializable;
+
+public class Cookie implements Serializable {
 	
 	int index;
 	String cookieMessage;	

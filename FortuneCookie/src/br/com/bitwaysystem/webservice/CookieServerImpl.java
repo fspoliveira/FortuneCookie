@@ -1,5 +1,7 @@
 package br.com.bitwaysystem.webservice;
 
+import java.util.ArrayList;
+
 import javax.jws.WebService;
 
 import br.com.bitwaysystem.bean.Cookie;
@@ -17,4 +19,9 @@ public class CookieServerImpl implements CookieServer {
 		return cookies.retrieveCookie(cookie);
 	}
 
+	@Override
+	public Cookie[]retrieveAllCookiesList() {
+		// TODO Auto-generated method stub
+		return cookies.retrieveAllCookiesList();
+	}
 }

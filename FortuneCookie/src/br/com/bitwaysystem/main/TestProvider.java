@@ -1,5 +1,7 @@
 package br.com.bitwaysystem.main;
 
+import java.util.ArrayList;
+
 import br.com.bitwaysystem.bean.Cookie;
 import br.com.bitwaysystem.dao.CookieDaoImpl;
 
@@ -17,6 +19,10 @@ public class TestProvider {
 		cookie = cookieDaoImpl.retrieveCookie(cookie);
 
 		System.out.println(cookie.getCookieMessage());
+		
+		
+		
+		
 	}
 
 }

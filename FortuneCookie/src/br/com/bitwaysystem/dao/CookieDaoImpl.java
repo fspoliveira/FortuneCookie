@@ -1,5 +1,6 @@
 package br.com.bitwaysystem.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.jws.WebService;
@@ -63,5 +64,22 @@ public class CookieDaoImpl extends Util implements CookieDao {
 		db.close();
 		return cookieResponse;
 
+	}
+
+	@Override
+	public Cookie[] retrieveAllCookiesList() {
+		ObjectContainer db = accessDb4o();
+		@SuppressWarnings("rawtypes")
+		ObjectSet result = db.queryByExample(Cookie.class);
+
+		Cookie[] cookies = new Cookie[result.size()];
+		int i = 0;
+		for (Object o : result) {
+			cookies[i] = (Cookie) o;
+			i++;
+		}
+
+		db.close();
+		return cookies;
 	}
 }
