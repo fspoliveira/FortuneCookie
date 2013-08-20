@@ -4,6 +4,10 @@ import java.io.Serializable;
 
 public class Cookie implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	int index;
 	String cookieMessage;	
 	

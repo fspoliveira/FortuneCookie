@@ -1,7 +1,8 @@
 package br.com.bitwaysystem.dao;
 
-import java.util.ArrayList;
+
 import java.util.List;
+import java.util.Random;
 
 import javax.jws.WebService;
 
@@ -82,4 +83,29 @@ public class CookieDaoImpl extends Util implements CookieDao {
 		db.close();
 		return cookies;
 	}
+
+	
+	public Cookie retrieveRandomCookie() {
+		// TODO Auto-generated method stub
+
+		ObjectContainer db = accessDb4o();
+
+		Query query = db.query();
+		query.constrain(Cookie.class);
+
+		Random randomGenerator = new Random();
+
+		query.descend("index").constrain(randomGenerator.nextInt(881));
+
+		@SuppressWarnings("rawtypes")
+		ObjectSet result = query.execute();
+		Cookie cookieResponse = null;
+
+		if (result.hasNext()) {
+			cookieResponse = (Cookie) result.next();
+		}
+		db.close();
+		return cookieResponse;
+	}
+
 }

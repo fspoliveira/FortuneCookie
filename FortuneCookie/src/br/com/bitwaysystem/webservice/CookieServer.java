@@ -1,7 +1,5 @@
 package br.com.bitwaysystem.webservice;
 
-import java.util.ArrayList;
-
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
@@ -14,4 +12,5 @@ import br.com.bitwaysystem.bean.Cookie;
 public interface CookieServer {
 	@WebMethod Cookie retrieveCookie(Cookie cookie);
 	@WebMethod Cookie[] retrieveAllCookiesList();
+	@WebMethod Cookie retrieveRandomCookie();
 }
